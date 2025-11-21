@@ -52,6 +52,10 @@ export default function Dashboard() {
                 const data = await profileRes.json();
                 setUsername(data.username);
                 setIsAcceptingMessages(data.isAcceptingMessages);
+            } else {
+                const errorData = await profileRes.json();
+                console.error("Failed to fetch profile:", errorData);
+                // Optional: Set an error state to display to the user
             }
 
         } catch (error) {

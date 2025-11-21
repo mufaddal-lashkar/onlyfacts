@@ -48,10 +48,10 @@ export async function GET(req: NextRequest) {
             },
             { status: 200 }
         );
-    } catch (error) {
+    } catch (error: any) {
         console.error("Error fetching user profile:", error);
         return NextResponse.json(
-            { error: "Internal Server Error" },
+            { error: error.message || "Internal Server Error" },
             { status: 500 }
         );
     }
